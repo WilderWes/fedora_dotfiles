@@ -1,0 +1,266 @@
+/* Global settings */
+/* Made with Gemini Pro 2.5 April 3 2025
+ * -- Fedora Default --> changed to Tokyo Night Color Scheme 
+ * -- Asked to take lead from https://github.com/lokesh-krishna/dotfiles/blob/main/tokyo-night/readme.md style
+ */ 
+* {
+    /* font-family: 'FiraCode Nerd font'; */ /* Use the font from Tokyo Night example */
+    font-family: 'FiraCode Nerd Font', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-size: 13px;
+    /* font-family: FiraCode Nerd Font; */
+    /* font-size: 13px; */
+    border: none; /* Remove borders globally as per Tokyo Night example */
+    border-radius: 0; /* Default to no radius, apply specifically later */
+    min-height: 0;
+}
+
+/* The main bar */
+window#waybar {
+    background: transparent; /* Tokyo Night uses transparent bar */
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */ /* Removed Fedora border */
+    color: #c0caf5; /* Default text color from Tokyo Night */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* Specific window classes (like termite, chromium) are less relevant with a transparent bar */
+/* Keep if you sometimes switch to non-transparent for specific apps */
+/* window#waybar.termite { background-color: #3F3F3F; } */
+/* window#waybar.chromium { background-color: #000000; } */
+
+/* Default button style - keep Fedora's hover logic for now unless overridden */
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit; /* Keep default hover unless specified */
+    /* box-shadow: inset 0 -3px #ffffff; */ /* Use Tokyo Night hover indication where appropriate */
+}
+
+/* Workspaces */
+#workspaces {
+    background-color: #24283b; /* Tokyo Night background */
+    margin: 5px; /* Tokyo Night margins */
+    margin-left: 10px; /* Tokyo Night specific margin */
+    border-radius: 5px; /* Tokyo Night rounding */
+}
+
+#workspaces button {
+    padding: 5px 10px; /* Tokyo Night padding */
+    background-color: transparent; /* Keep transparent */
+    color: #c0caf5; /* Tokyo Night text color */
+    border-radius: 5px; /* Apply rounding to buttons too */
+}
+
+#workspaces button:hover {
+    background-color: #7dcfff; /* Tokyo Night hover background */
+    color: #24283b; /* Tokyo Night hover text */
+    box-shadow: none; /* Override default box-shadow hover */
+}
+
+#workspaces button.focused {
+    background-color: #7aa2f7; /* Tokyo Night focused background */
+    color: #24283b; /* Tokyo Night focused text */
+    box-shadow: none; /* Override default box-shadow */
+}
+
+#workspaces button.urgent {
+    background-color: #db4b4b; /* Tokyo Night urgent/danger color */
+    color: #24283b;
+    box-shadow: none;
+}
+
+/* General Modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber, /* Assuming similar style */
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#language, /* Add modules if needed */
+#keyboard-state {
+    background-color: #24283b; /* Tokyo Night default module background */
+    color: #c0caf5; /* Tokyo Night default text color */
+    padding: 5px 10px; /* Tokyo Night padding */
+    margin: 5px 0px; /* Tokyo Night vertical margins */
+    border-radius: 5px; /* Apply rounding generally */
+}
+
+/* Adjustments for specific modules based on Tokyo Night example */
+/* Add margin to the rightmost element on the left */
+.modules-left > widget:last-child > * {
+    margin-right: 5px; /* Add small space between left/center */
+}
+/* Add margin to the leftmost element on the right */
+.modules-right > widget:first-child > * {
+    margin-left: 5px; /* Add small space between center/right */
+}
+/* Special margin/rounding for end modules */
+.modules-right > widget:last-child > * {
+    margin-right: 10px; /* Match workspaces left margin */
+}
+.modules-left > widget:first-child > #workspaces {
+     /* Already has margin-left: 10px; */
+}
+
+
+#clock {
+    color: #b48ead; /* Tokyo Night clock color */
+    /* Apply rounding if it's an end module potentially */
+     border-radius: 0px 5px 5px 0px; /* Example: If it's last on the right */
+     margin-right: 10px; /* Example: If it's last on the right */
+}
+
+#battery {
+    color: #9ece6a; /* Tokyo Night battery color */
+}
+
+#battery.charging, #battery.plugged {
+    color: #24283b; /* Dark text for contrast */
+    background-color: #9ece6a; /* Use the green color as background */
+}
+
+#battery.warning:not(.charging), /* Use Tokyo Night warning class */
+#battery.critical:not(.charging) { /* Keep Fedora critical class name */
+    background-color: #f7768e; /* Tokyo Night warning/critical background */
+    color: #24283b; /* Tokyo Night warning/critical text */
+    animation: none; /* Remove Fedora blink */
+}
+
+#power-profiles-daemon {
+    /* Default style applied above */
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f7768e; /* Danger/High */
+    color: #24283b;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #7aa2f7; /* Info/Normal */
+    color: #24283b;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #9ece6a; /* Good/Low */
+    color: #24283b;
+}
+
+
+#cpu {
+    /* Use default Tokyo Night style or assign a color if desired */
+     color: #9ece6a; /* Example: Using success green */
+}
+
+#memory {
+    /* Use default Tokyo Night style or assign a color if desired */
+     color: #7aa2f7; /* Example: Using info blue */
+}
+
+#disk {
+     /* Use default Tokyo Night style or assign a color if desired */
+     color: #e0af68; /* Example: Using warning yellow */
+}
+
+#network {
+    color: #f7768e; /* Tokyo Night network color */
+     /* Apply rounding if it's an end module potentially */
+     border-radius: 5px 0px 0px 5px; /* Example: If it's first on the right */
+}
+
+#network.disconnected {
+    background-color: #f7768e; /* Use warning color for background */
+    color: #24283b; /* Dark text */
+}
+
+#pulseaudio {
+    color: #e0af68; /* Tokyo Night pulseaudio color */
+}
+
+#pulseaudio.muted {
+    background-color: #414868; /* A dimmer Tokyo Night background */
+    color: #a9b1d6; /* A dimmer text color */
+}
+
+#temperature {
+     /* Default style */
+     color: #ff9e64; /* Orangesh for normal temp */
+}
+
+#temperature.critical {
+    background-color: #f7768e; /* Use warning/critical color */
+    color: #24283b; /* Dark text */
+}
+
+#tray {
+    /* background-color: #24283b; */ /* Default applied */
+    /* We might need more specific tray styling depending on icons */
+    margin-right: 10px; /* Ensure spacing if it's the last item */
+    border-radius: 5px;
+}
+
+/* Style for tray icons if needed */
+/* #tray > .passive { -gtk-icon-effect: dim; } */
+/* #tray > .needs-attention { background-color: #f7768e; border-radius: 3px;} */
+
+
+/* Other modules - Apply default Tokyo Night style or customize as needed */
+#mode { /* Sway/i3 mode indicator */
+    background-color: #7aa2f7; /* Use focus color */
+    color: #24283b;
+    /* border-radius: 5px; */ /* Already applied generally */
+}
+
+#idle_inhibitor {
+    /* Default style */
+}
+
+#idle_inhibitor.activated {
+    background-color: #ff9e64; /* Orange */
+    color: #24283b;
+}
+
+#custom-power { /* If you add this from the Tokyo Night example */
+    color: #24283b;
+    background-color: #db4b4b;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+}
+
+/* Keep Fedora's privacy indicator styles for now, adjust colors if desired */
+#privacy {
+    padding: 0;
+    background: #24283b;
+    margin: 5px;
+    border-radius: 5px;
+}
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+    margin: 2px 0px; /* Add slight vertical margin */
+    border-radius: 3px; /* Smaller rounding inside */
+}
+#privacy-item.screenshare { background-color: #cf5700; }
+#privacy-item.audio-in { background-color: #1ca000; }
+#privacy-item.audio-out { background-color: #0069d4; }
