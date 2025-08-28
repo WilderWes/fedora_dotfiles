@@ -76,8 +76,8 @@ plugins=(
  zsh-autosuggestions
  zsh-completions
  arduino-cli
+ gradle-completion
 )
-autoload -U compinit && compinit
 
 
 source $ZSH/oh-my-zsh.sh
@@ -114,9 +114,7 @@ alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
 alias fastfetch="fastfetch --config examples/8.jsonc"
 alias update-grub="sudo grub2-mkconfig -o /etc/grub2.cfg"
+export PATH="/opt/gradle/gradle-9.0.0/bin:~/.local/bin:/home/wpreising/.local/bin:/home/wpreising/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 fastfetch
 eval "$(starship init zsh)"
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
 
-export PATH=~/.local/bin:/home/wpreising/.local/bin:/home/wpreising/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH="$HOME/.cargo/bin:$PATH"
