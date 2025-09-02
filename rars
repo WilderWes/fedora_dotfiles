@@ -1,4 +1,5 @@
-#!/bin/bash
+#/bin/bash
 _JAVA_AWT_WM_NONREPARENTING=1 \
 java -Dswing.aatext=true -Dawt.useSystemAAFontSettings=on \
--jar /home/wpreising/Dropbox/mines/csci341_compOrg/rars1_6.jar
+-jar /home/wpreising/Dropbox/rars1_6.jar "$@"
+
