@@ -22,12 +22,13 @@ source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------------
 # Use the `path` array instead of one long string.
 # This avoids duplicates and makes order easy to control.
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 path=(
-  $HOME/.local/share/nvim/mason/bin  # Neovim Mason tools (asm-lsp, etc.)
-  $HOME/.cargo/bin                   # Cargo-installed binaries
+  $JAVA_HOME/bin                   # always prefer JDK 21 first
+  /opt/gradle/gradle-9.0.0/bin       # Gradle
   $HOME/.local/bin                   # pipx, local scripts
   $HOME/bin                          # your personal scripts
-  /opt/gradle/gradle-9.0.0/bin       # Gradle
+  $HOME/.local/share/nvim/mason/bin  # Neovim Mason tools (asm-lsp, etc.)
   $path                              # preserve existing system defaults
 )
 typeset -U path   # deduplicate while keeping left-most entries
