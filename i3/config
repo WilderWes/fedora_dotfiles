@@ -22,7 +22,7 @@ font pango:monospace 8
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 
 # set wallpaper
-exec --no-startup-id feh --bg-scale ~/Dropbox/wp_personal/mtFUJI.png
+exec_always --no-startup-id feh --bg-scale ~/Dropbox/wp_personal/nightmode_wallpaper.jpeg
 
 # picom
 exec_always --no-startup-id picom
