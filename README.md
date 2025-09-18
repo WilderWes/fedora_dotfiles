@@ -1,8 +1,3 @@
-<!--toc:start-->
-- [Fedora Sway Dotfiles](#fedora-sway-dotfiles)
-- [Fedora i3 Dotfiles](#fedora-i3-dotfiles)
-<!--toc:end-->
-
 # Fedora Sway Dotfiles
 
 Includes configs for Sway that are specific to my personal Thinkpad X1 Carbon G13
@@ -14,9 +9,3 @@ Includes configs for Sway that are specific to my personal Thinkpad X1 Carbon G1
 - zathura with inverted colors for dark mode pdf viewing
 - clangd file
 - .zshrc
-
-# Fedora i3 Dotfiles
-
-- be sure to set 40libinput
-- add QT_QPA_PLATFORMTHEME=qt5ct to /etc/environment
-- autorandr
