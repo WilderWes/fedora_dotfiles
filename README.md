@@ -9,3 +9,5 @@ Includes configs for Sway that are specific to my personal Thinkpad X1 Carbon G1
 - zathura with inverted colors for dark mode pdf viewing
 - clangd file
 - .zshrc
+
+- remove pipewire-config-raop so discord stops suggesting others' macbook pro mics

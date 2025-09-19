@@ -36,8 +36,9 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi -theme /usr/s
 output * bg /home/wpreising/Dropbox/wp_personal/nightmode_wallpaper.jpeg fill
 #
 # Example configuration:
+output * allow_tearing no
 output eDP-1 resolution 2880x1800@120.000Hz scale 1.66667
-output DP-1 resolution 2560x1440@165.080Hz adaptive_sync off
+output DP-1 resolution 2560x1440@165.080Hz adaptive_sync on
 
 # inhibit idle in fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen
@@ -105,7 +106,7 @@ input type:keyboard {
 
     bindsym $mod+p exec 1password --enable-features=UseOzonePlatform --ozone-platform=x11
 
-    bindsym $mod+d exec Discord
+    bindsym $mod+d exec Discord --enable-features=UseOzonePlatform --ozone-platform=wayland
 
     bindsym $mod+b exec brave-browser
 
