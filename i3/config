@@ -22,7 +22,7 @@ font pango:monospace 8
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 
 # set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Dropbox/wp_personal/nightmode_wallpaper.jpeg
+exec_always --no-startup-id feh --bg-scale ~/Dropbox/wp_personal/nightmode_wallpaper.png
 
 # picom
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b
@@ -40,7 +40,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Dropbox/wp_personal/nightmode_wallpaper.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
