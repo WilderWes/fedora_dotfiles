@@ -110,7 +110,7 @@ input type:keyboard {
 
     bindsym $mod+b exec brave-browser
 
-    bindsym $mod+f exec $term -e ranger
+    bindsym $mod+f exec $term -e yazi
 
     bindsym Print exec grim -g "$(slurp -d)" - | wl-copy
     # bindsym     Print       exec grimshot save output
