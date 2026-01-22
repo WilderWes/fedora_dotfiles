@@ -1,4 +1,4 @@
-# Fedora DotFiles
+# Fedora Dotfiles
 
 **Author:** Weston Preising
 
