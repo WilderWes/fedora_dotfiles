@@ -30,6 +30,11 @@ if (pgrep --exact firefox >/dev/null); then
     i3-msg 'workspace 1; exec firefox'
 fi
 
+if (pgrep --exact brave-browser >/dev/null); then
+    pkill --exact brave-browser
+    i3-msg 'workspace 1; exec brave-browser'
+fi
+
 if (pgrep --exact dunst >/dev/null); then
     pkill --exact dunst
     dunst &
