@@ -1,8 +1,8 @@
-# Fedora Sway DotFiles
+# Fedora DotFiles
 
 **Author:** Weston Preising
 
-A minimal Fedora 43 Sway configuration focused on development (I'm currently a MS in CS candidate at Mines) and guitar practice/recording.
+A minimal Fedora 43 i3/Sway configuration focused on development (I'm currently a MS in CS candidate at Mines) and guitar practice/recording.
 Emphasis on vim-based applications when possible since vim is fun. A profound thank you to all open source contributors--thank you for making Linux accessible and enjoyable :).
 
 ## To-do
