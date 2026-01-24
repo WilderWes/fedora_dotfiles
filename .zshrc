@@ -122,6 +122,7 @@ alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias ls='eza -la --color=always --group-directories-first --icons'
 alias fastfetch="fastfetch --config examples/8.jsonc"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias x-copy="xclip -selection clipboard"
 
 # Yazi
 function y() {

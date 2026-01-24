@@ -1,45 +1,35 @@
-#! /bin/sh
-
-# per chatgpt need to unset this for autorandr/postswitch to work
-unset I3SOCK # ensure i3-msg finds the live socket
-
+#!/bin/sh
+# per chatgpt I need to unset I3SOCK
+unset I3SOCK
 log="$HOME/.cache/autorandr.log"
 
 case "$AUTORANDR_CURRENT_PROFILE" in
-laptop)
-    ~/setdpi laptop
-    ;;
-docked)
-    ~/setdpi docked
-    ;;
-*)
-    echo "$(date): no dpi rule set for $AUTORANDR_CURRENT_PROFILE" >>$log
-    ;;
+laptop) echo "Xft.dpi: 162" | xrdb -merge ;;
+docked) echo "Xft.dpi: 96" | xrdb -merge ;;
+*) echo "$(date): no dpi rule for $AUTORANDR_CURRENT_PROFILE" >>"$log" ;;
 esac
 
-# check if i3lock is running
-if (pgrep --exact i3lock >/dev/null); then
-    i3-msg reload # reload only b/c restart removes i3lock
+if pgrep -x i3lock >/dev/null; then
+    i3-msg reload
 else
     i3-msg restart
 fi
 
-# restart common programs that don't reset with dpi changes
-if (pgrep --exact firefox >/dev/null); then
-    pkill --exact firefox
+if pgrep -x firefox >/dev/null; then
+    pkill -x firefox
     i3-msg 'workspace 1; exec firefox'
 fi
 
-if (pgrep --exact brave-browser >/dev/null); then
-    pkill --exact brave-browser
+if pgrep -x brave-browser >/dev/null; then
+    pkill -x brave-browser
     i3-msg 'workspace 1; exec brave-browser'
 fi
 
-if (pgrep --exact dunst >/dev/null); then
-    pkill --exact dunst
+if pgrep -x dunst >/dev/null; then
+    pkill -x dunst
     dunst &
 fi
 
-if (pgrep --exact 1password >/dev/null); then
-    pkill --exact 1password
+if pgrep -x 1password >/dev/null; then
+    pkill -x 1password
 fi
