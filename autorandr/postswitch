@@ -15,9 +15,16 @@ else
     i3-msg restart
 fi
 
+# std firefox
 if pgrep -x firefox >/dev/null; then
     pkill -x firefox
     i3-msg 'workspace 1; exec firefox'
+fi
+
+# firefox-dev via the4runner copr
+if pgrep -x firefox-bin >/dev/null; then
+    pkill -x firefox-bin
+    i3-msg 'workspace 1; exec firefox-aurora'
 fi
 
 if pgrep -x brave-browser >/dev/null; then
