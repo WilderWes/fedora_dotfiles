@@ -19,7 +19,7 @@ Emphasis on vim-based applications when possible since vim is fun. A profound th
 ### Backend
 
 - [Picom](https://github.com/yshui/picom) compositor with EGL backend
-- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) with EGL forced (`gfx.x11-egl.force-enabled`; see [nvidia-vaapi-driver docs](https://github.com/elFarto/nvidia-vaapi-driver#firefox)
+- [Firefox](https://www.mozilla.org/en-US/firefox/) with EGL forced (`gfx.x11-egl.force-enabled`; see [nvidia-vaapi-driver docs](https://github.com/elFarto/nvidia-vaapi-driver#firefox))
 
 ### Terminal & Shell
 
@@ -45,7 +45,7 @@ Emphasis on vim-based applications when possible since vim is fun. A profound th
 
 ### Browsers
 
-- [Firefox Developer Edition](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/) via COPR with [Betterfox](https://github.com/yokoffing/Betterfox) user.js
+- [Firefox](https://www.mozilla.org/en-US/firefox/) with [Betterfox](https://github.com/yokoffing/Betterfox) user.js
 - [qutebrowser](https://qutebrowser.org/) — keyboard-driven browser, used strictly for [Markdown Preview](https://github.com/iamcco/markdown-preview.nvim)
 
 ### Embedded Development
