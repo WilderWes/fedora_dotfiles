@@ -2,15 +2,24 @@
 
 **Author:** Weston Preising
 
-A minimal Fedora 43 i3/Sway configuration focused on development (I'm currently a MS in CS candidate at Mines) and guitar practice/recording.
-Emphasis on vim-based applications when possible since vim is fun. A profound thank you to all open source contributors--thank you for making Linux accessible and enjoyable :).
+A minimal Fedora 43 i3 configuration focused on development (I'm currently an MS in CS candidate at Mines) and guitar practice/recording.
+Emphasis on vim-based applications when possible since vim is fun. A profound thank you to all open source contributors—thank you for making Linux accessible and enjoyable :).
 
 ## To-do
 
-1) update headers on all config files
-2) add install commands
+1. Update headers on all config files
+2. Add install commands
 
 ## Core Setup
+
+### Main Resource
+
+- [Fedora 43 Post Install Guide](https://github.com/devangshekhawat/Fedora-43-Post-Install-Guide) — essential post-install steps
+
+### Backend
+
+- [Picom](https://github.com/yshui/picom) compositor with EGL backend
+- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/) with EGL forced (`gfx.x11-egl.force-enabled`; see [nvidia-vaapi-driver docs](https://github.com/elFarto/nvidia-vaapi-driver#firefox)
 
 ### Terminal & Shell
 
@@ -24,10 +33,14 @@ Emphasis on vim-based applications when possible since vim is fun. A profound th
 - [eza](https://github.com/eza-community/eza) as ls replacement
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) system info
 
+### Display Management
+
+- [autorandr](https://github.com/phillipberndt/autorandr) — automatic display configuration based on connected hardware
+
 ### Editor & File Management
 
 - [Neovim](https://neovim.io/) via [LazyVim](https://www.lazyvim.org/)
-- [yazi](https://github.com/sxyazi/yazi) terminal file manager
+- [yazi](https://github.com/sxyazi/yazi) — terminal file manager
 - [zathura](https://pwmt.org/projects/zathura/) with [zathura-pdf-poppler](https://pwmt.org/projects/zathura-pdf-poppler/) for PDF viewing
 
 ### Browsers
@@ -37,124 +50,67 @@ Emphasis on vim-based applications when possible since vim is fun. A profound th
 
 ### Embedded Development
 
-- [esp-idf](https://github.com/espressif/esp-idf) toolchain
-  - [NOTE] not using this currently but plan to build out some projects with my ESP32
-- [SDKMAN](https://sdkman.io/) for JDK management (gradle)
+- [esp-idf](https://github.com/espressif/esp-idf) toolchain (not currently in use, but planning ESP32 projects)
+- [SDKMAN](https://sdkman.io/) for JDK management (Gradle)
 
 ## Music Production / Guitar
 
 - [Transcribe!](https://www.seventhstring.com/) — slow down audio, loop sections, transcribe by ear
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) — download videos/audio from YouTube
 - [DaVinci Resolve Studio](https://www.blackmagicdesign.com/products/davinciresolve) — video editing
-  - [Fedora 43 setup guide](https://www.reddit.com/r/davinciresolve/comments/1pt8omd/guide_native_davinci_resolve_on_fedora_43/)
-  - Fix library conflicts:
-
-    ```bash
-    cd /opt/resolve/libs
-    sudo mkdir disabled-libraries
-    sudo mv libgio* disabled-libraries/
-    sudo mv libglib* disabled-libraries/
-    sudo mv libgmodule* disabled-libraries/
-    ```
-
-  - Also install `intel-compute-runtime`
+  - [davinci-helper](https://github.com/H3rz3n/davinci-helper) — Fedora installation/setup assistant
+  - **Fedora 43 fix:** davinci-helper doesn't currently launch on F43; see [howto-davinci-resolve-fedora-43](https://github.com/gerelef/howto-davinci-resolve-fedora-43) for a workaround
 - [OBS Studio](https://obsproject.com/) with [DroidCam](https://www.dev47apps.com/)
-  - Fix lag via [linux audio realtime setup](https://wiki.linuxaudio.org/wiki/system_configuration)
-  - Run `realtime-setup`, enable services, add user to `realtime` group
-- [Bitwig Studio](https://www.bitwig.com/) — flatpak
+  - Fix audio lag via [Linux audio realtime setup](https://wiki.linuxaudio.org/wiki/system_configuration): run `realtime-setup`, enable services, add user to `realtime` group
+- [Bitwig Studio](https://www.bitwig.com/) (Flatpak)
 - [Handbrake](https://handbrake.fr/) — video transcoding
 - [VLC](https://www.videolan.org/vlc/)
-- [LocalSend](https://localsend.org/) — flatpak, cross-platform file sharing
+- [LocalSend](https://localsend.org/) — cross-platform file sharing (Flatpak)
 
 ## School / Testing
 
-- [Eclipse](https://eclipseide.org/) — flatpak
+- [Eclipse](https://eclipseide.org/) (Flatpak)
   - HiDPI fix: `GDK_SCALE=2 GDK_DPI_SCALE=0.5`
-- [RARS](https://github.com/TheThirdOne/rars) — RISC-V assembler and simulator
-  - Using custom script for antialiasing
+- [RARS](https://github.com/TheThirdOne/rars) — RISC-V assembler and simulator (using custom script for antialiasing)
 
 ## Communication
 
 - [Discord](https://discord.com/)
 
-## References
+## Reference Documentation
 
-### Main Resource
+### Fedora
 
-- [Fedora 43 Post Install Guide](https://github.com/devangshekhawat/Fedora-43-Post-Install-Guide) — essential post-install steps
-
-### Terminal & Shell
-
-- [kitty](https://sw.kovidgoyal.net/kitty/) — GPU-accelerated terminal
-- [CommitMono](https://commitmono.com/) — neutral programming font
-- [oh-my-zsh](https://ohmyz.sh/) — zsh framework
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — fish-like syntax highlighting
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — fish-like autosuggestions
-- [zsh-completions](https://github.com/zsh-users/zsh-completions) — additional completions
-- [gradle-completion](https://github.com/gradle/gradle-completion) — gradle tab completion
-- [starship](https://starship.rs/) — cross-shell prompt
-- [eza](https://github.com/eza-community/eza) — modern ls replacement
-- [fastfetch](https://github.com/fastfetch-cli/fastfetch) — system information tool
-
-### Editor & Tools
-
-- [Neovim](https://neovim.io/) — hyperextensible text editor
-- [LazyVim](https://www.lazyvim.org/) — neovim configuration
-- [yazi](https://github.com/sxyazi/yazi) — terminal file manager
-- [zathura](https://pwmt.org/projects/zathura/) — vim-like PDF viewer
-- [zathura-pdf-poppler](https://pwmt.org/projects/zathura-pdf-poppler/) — poppler PDF backend
-
-### Browsers
-
-- [Firefox Developer Edition COPR](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/) — bleeding edge Firefox
-- [Betterfox](https://github.com/yokoffing/Betterfox) — Firefox user.js for speed and privacy
-- [qutebrowser](https://qutebrowser.org/) — keyboard-driven browser
-
-### Development
-
-- [esp-idf](https://github.com/espressif/esp-idf) — ESP32 development framework
-- [SDKMAN](https://sdkman.io/) — SDK version manager for JVM languages
-
-### Fedora Docs
-
-- [Adding New Fonts](https://docs.fedoraproject.org/en-US/quick-docs/fonts/) — install custom fonts
-- [Installing Java](https://docs.fedoraproject.org/en-US/quick-docs/installing-java/) — OpenJDK setup
-- [LaTeX](https://docs.fedoraproject.org/en-US/neurofedora/latex/) — TeXLive installation
-- [Troubleshoot Sound Problems](https://docs.fedoraproject.org/en-US/quick-docs/how-to-troubleshoot-sound-problems/) — PipeWire debugging
-
-### Sway / Wayland
-
-- [Fedora Sway Login Background](https://morph.sh/posts/2024-01-15-fedora-sway-change-background/) — change sddm and swaylock backgrounds
-- [Fedora Sway Kanshi Setup](https://blog.sakuragawa.moe/working-on-fedora-sway-spin/) — multi-monitor config
-- [Detect Wayland vs XWayland](https://medium.com/@bugaevc/how-to-easily-determine-if-an-app-runs-on-xwayland-or-on-wayland-natively-8191b506ab9a) — use xeyes to check
-- [kanshi](https://github.com/emersion/kanshi) — dynamic output configuration
-- [gammastep](https://gitlab.com/chinstrap/gammastep) — screen color temperature (Wayland redshift alternative)
-- [dunst](https://github.com/dunst-project/dunst) — lightweight notification daemon
-- [simple-hyprland](https://github.com/gaurav23b/simple-hyprland) — borrowed dunst config from here
-
-### Audio
-
-- [Linux Audio Config](https://wiki.linuxaudio.org/wiki/system_configuration) — realtime audio setup
+- [Adding New Fonts](https://docs.fedoraproject.org/en-US/quick-docs/fonts/)
+- [Installing Java](https://docs.fedoraproject.org/en-US/quick-docs/installing-java/)
+- [LaTeX / TeXLive](https://docs.fedoraproject.org/en-US/neurofedora/latex/)
+- [Troubleshoot Sound Problems](https://docs.fedoraproject.org/en-US/quick-docs/how-to-troubleshoot-sound-problems/)
 
 ### Docker
 
-- [Docker on Fedora](https://docs.docker.com/engine/install/fedora/) — install Docker Engine
-- [Docker Post-Install](https://docs.docker.com/engine/install/linux-postinstall/) — non-root user setup
-- [Docker Completion](https://docs.docker.com/compose/completion/) — shell autocompletion
+- [Docker on Fedora](https://docs.docker.com/engine/install/fedora/)
+- [Post-Install (non-root setup)](https://docs.docker.com/engine/install/linux-postinstall/)
+- [Shell Autocompletion](https://docs.docker.com/compose/completion/)
 
 ### Utilities
 
-- [Clang-Format Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html) — code formatting config
+- [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [img2pdf](https://pypi.org/project/img2pdf/) — lossless image to PDF
-- [cpdf](https://github.com/coherentgraphics/cpdf-binaries) — PDF manipulation from the command line
-
-### Other Acknowledgments
-
-Plenty of small fixes came from random Google searches, Reddit threads, and StackOverflow answers that may not be cited (I should have done a better job organizing this from the get-go).
+- [cpdf](https://github.com/coherentgraphics/cpdf-binaries) — PDF manipulation CLI
 
 ## AI Usage
 
-- To organize this README
-- To convert some default fedora theming to tokyo-night (e.g. Waybar)
-- Played around with a few models but been mostly using Claude
-- When using AI, I strive to use it as an active learning tool -- not blindly copying and pasting -- and always prioritize active learning whenever possible.
+- README organization
+- Converting default Fedora theming to Tokyo Night (e.g., Waybar)
+- Primarily using Claude; striving to use AI as an active learning tool rather than blindly copying and pasting
+
+## Archived: Sway / Wayland
+
+*Previously used a Sway/Wayland setup before switching to i3. Keeping these references for potential future use.*
+
+- [Fedora Sway Login Background](https://morph.sh/posts/2024-01-15-fedora-sway-change-background/) — change SDDM and swaylock backgrounds
+- [Fedora Sway Kanshi Setup](https://blog.sakuragawa.moe/working-on-fedora-sway-spin/) — multi-monitor config
+- [Detect Wayland vs XWayland](https://medium.com/@bugaevc/how-to-easily-determine-if-an-app-runs-on-xwayland-or-on-wayland-natively-8191b506ab9a) — use `xeyes` to check
+- [kanshi](https://github.com/emersion/kanshi) — dynamic output configuration
+- [gammastep](https://gitlab.com/chinstrap/gammastep) — screen color temperature (Wayland redshift alternative)
+- [dunst](https://github.com/dunst-project/dunst) — lightweight notification daemon (borrowed config from [simple-hyprland](https://github.com/gaurav23b/simple-hyprland))
