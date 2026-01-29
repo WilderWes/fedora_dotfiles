@@ -121,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
 alias ls='eza -la --color=always --group-directories-first --icons'
 alias fastfetch="fastfetch --config examples/8.jsonc"
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias update-grub="sudo grub2-mkconfig -o /etc/grub2.cfg && sudo grub2-mkconfig -o /etc/grub2-efi.cfg"
 alias x-copy="xclip -selection clipboard"
 
 # Yazi
